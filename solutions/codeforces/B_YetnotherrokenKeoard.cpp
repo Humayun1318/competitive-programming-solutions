@@ -32,7 +32,6 @@ int main()
             }
             else if (s[i] != 'b' && islower(s[i]))
             {
-
                 sm.push_back(i);
             }
             else if (s[i] != 'B' && isupper(s[i]))
