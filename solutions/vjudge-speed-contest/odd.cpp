@@ -19,6 +19,8 @@ int main() {
                 odd_count++;
             }
         }
+
+        // Check if there is exactly one odd number
         
         if (odd_count == 1) {
             cout << "Yes\n";
