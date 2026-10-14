@@ -3,6 +3,9 @@
 using namespace std;
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int t;
     cin >> t;
 
@@ -11,30 +14,42 @@ int main() {
         long long h;
         cin >> n >> m >> h;
 
-        vector<long long> a(n), original(n);
+        vector<long long> a(n), added(n, 0);
+        vector<int> lastUpdate(n, 0);
 
         for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
 
-        original = a;
+        int lastCrash = 0;
 
-        for (int i = 0; i < m; i++) {
+        for (int i = 1; i <= m; i++) {
             int b;
             long long c;
             cin >> b >> c;
+            b--;
 
-            b--; // 1-based index to 0-based index
+            if (lastUpdate[b] < lastCrash) {
+                added[b] = 0;
+            }
 
-            a[b] += c;
+            added[b] += c;
+            lastUpdate[b] = i;
 
-            if (a[b] > h) {
-                a = original;
+            if (a[b] + added[b] > h) {
+                lastCrash = i;
+                added[b] = 0;
             }
         }
 
         for (int i = 0; i < n; i++) {
-            cout << a[i] << (i == n - 1 ? '\n' : ' ');
+            if (lastUpdate[i] < lastCrash) {
+                cout << a[i];
+            } else {
+                cout << a[i] + added[i];
+            }
+
+            cout << (i == n - 1 ? '\n' : ' ');
         }
     }
 
