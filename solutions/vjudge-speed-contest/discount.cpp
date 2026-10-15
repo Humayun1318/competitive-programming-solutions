@@ -16,6 +16,7 @@ int main() {
         vector<long long> a(n);
         vector<int> b(k);
 
+        // Calculate the initial sum of the array a
         long long ans = 0;
 
         for (int i = 0; i < n; i++) {
