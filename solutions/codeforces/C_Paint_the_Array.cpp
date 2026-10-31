@@ -4,7 +4,7 @@ using namespace std;
 
 using ll = long long;
 
-
+// solution: https://codeforces.com/contest/1692/submission/159905646
 int main()
 {
     ios::sync_with_stdio(false);
