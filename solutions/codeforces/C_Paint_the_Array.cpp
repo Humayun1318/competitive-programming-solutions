@@ -19,7 +19,7 @@ int main()
         cin >> n;
 
         vector<ll> a(n);
-
+        // input for the vector
         for (int i = 0; i < n; i++)
         {
             cin >> a[i];
